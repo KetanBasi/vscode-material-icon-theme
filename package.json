@@ -141,102 +141,119 @@
         "command": "material-icon-theme.changeSaturation",
         "title": "%command.changeSaturation%",
         "enablement": "!isWeb"
+      },
+      {
+        "command": "material-icon-theme.frameworkSupports.toggleNextJS",
+        "title": "%command.frameworkSupports.toggleNextJS%",
+        "enablement": "!isWeb"
       }
     ],
-    "configuration": {
-      "type": "object",
-      "title": "%configuration.title%",
-      "properties": {
-        "material-icon-theme.activeIconPack": {
-          "type": "string",
-          "default": "angular",
-          "description": "%configuration.activeIconPack%",
-          "enumDescriptions": [
-            "%configuration.activeIconPack.angular%",
-            "%configuration.activeIconPack.angular_ngrx%",
-            "%configuration.activeIconPack.react%",
-            "%configuration.activeIconPack.react_redux%",
-            "%configuration.activeIconPack.qwik%",
-            "%configuration.activeIconPack.vue%",
-            "%configuration.activeIconPack.vue_vuex%",
-            "%configuration.activeIconPack.nest%",
-            "%configuration.activeIconPack.none%"
-          ],
-          "enum": [
-            "angular",
-            "angular_ngrx",
-            "react",
-            "react_redux",
-            "qwik",
-            "vue",
-            "vue_vuex",
-            "nest",
-            "none"
-          ]
-        },
-        "material-icon-theme.files.associations": {
-          "type": "object",
-          "default": {},
-          "description": "%configuration.files.associations%"
-        },
-        "material-icon-theme.folders.associations": {
-          "type": "object",
-          "default": {},
-          "description": "%configuration.folders.associations%"
-        },
-        "material-icon-theme.languages.associations": {
-          "type": "object",
-          "default": {},
-          "description": "%configuration.languages.associations%"
-        },
-        "material-icon-theme.folders.theme": {
-          "type": "string",
-          "default": "specific",
-          "description": "%configuration.folders.theme%",
-          "enumDescriptions": [
-            "%configuration.folders.theme.specific%",
-            "%configuration.folders.theme.classic%",
-            "%configuration.folders.theme.none%"
-          ],
-          "enum": [
-            "specific",
-            "classic",
-            "none"
-          ]
-        },
-        "material-icon-theme.folders.color": {
-          "type": "string",
-          "default": "#90a4ae",
-          "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
-          "description": "%configuration.folders.color%"
-        },
-        "material-icon-theme.files.color": {
-          "type": "string",
-          "default": "#90a4ae",
-          "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
-          "description": "%configuration.files.color%"
-        },
-        "material-icon-theme.opacity": {
-          "type": "number",
-          "default": 1,
-          "minimum": 0,
-          "maximum": 1,
-          "description": "%configuration.opacity%"
-        },
-        "material-icon-theme.hidesExplorerArrows": {
-          "type": "boolean",
-          "default": false,
-          "description": "%configuration.hidesExplorerArrows%"
-        },
-        "material-icon-theme.saturation": {
-          "type": "number",
-          "default": 1,
-          "minimum": 0,
-          "maximum": 1,
-          "description": "%configuration.saturation%"
+    "configuration": [
+      {
+        "type": "object",
+        "title": "%configuration.title%",
+        "properties": {
+          "material-icon-theme.activeIconPack": {
+            "type": "string",
+            "default": "angular",
+            "description": "%configuration.activeIconPack%",
+            "enumDescriptions": [
+              "%configuration.activeIconPack.angular%",
+              "%configuration.activeIconPack.angular_ngrx%",
+              "%configuration.activeIconPack.react%",
+              "%configuration.activeIconPack.react_redux%",
+              "%configuration.activeIconPack.qwik%",
+              "%configuration.activeIconPack.vue%",
+              "%configuration.activeIconPack.vue_vuex%",
+              "%configuration.activeIconPack.nest%",
+              "%configuration.activeIconPack.none%"
+            ],
+            "enum": [
+              "angular",
+              "angular_ngrx",
+              "react",
+              "react_redux",
+              "qwik",
+              "vue",
+              "vue_vuex",
+              "nest",
+              "none"
+            ]
+          },
+          "material-icon-theme.files.associations": {
+            "type": "object",
+            "default": {},
+            "description": "%configuration.files.associations%"
+          },
+          "material-icon-theme.folders.associations": {
+            "type": "object",
+            "default": {},
+            "description": "%configuration.folders.associations%"
+          },
+          "material-icon-theme.languages.associations": {
+            "type": "object",
+            "default": {},
+            "description": "%configuration.languages.associations%"
+          },
+          "material-icon-theme.folders.theme": {
+            "type": "string",
+            "default": "specific",
+            "description": "%configuration.folders.theme%",
+            "enumDescriptions": [
+              "%configuration.folders.theme.specific%",
+              "%configuration.folders.theme.classic%",
+              "%configuration.folders.theme.none%"
+            ],
+            "enum": [
+              "specific",
+              "classic",
+              "none"
+            ]
+          },
+          "material-icon-theme.folders.color": {
+            "type": "string",
+            "default": "#90a4ae",
+            "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+            "description": "%configuration.folders.color%"
+          },
+          "material-icon-theme.files.color": {
+            "type": "string",
+            "default": "#90a4ae",
+            "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+            "description": "%configuration.files.color%"
+          },
+          "material-icon-theme.opacity": {
+            "type": "number",
+            "default": 1,
+            "minimum": 0,
+            "maximum": 1,
+            "description": "%configuration.opacity%"
+          },
+          "material-icon-theme.hidesExplorerArrows": {
+            "type": "boolean",
+            "default": false,
+            "description": "%configuration.hidesExplorerArrows%"
+          },
+          "material-icon-theme.saturation": {
+            "type": "number",
+            "default": 1,
+            "minimum": 0,
+            "maximum": 1,
+            "description": "%configuration.saturation%"
+          }
+        }
+      },
+      {
+        "title": "Framework Supports",
+        "properties": {
+          "material-icon-theme.frameworkSupports.nextJS": {
+            "type": "boolean",
+            "default": false,
+            "description": "%configuration.frameworkSupports.nextJS%"
+          }
         }
       }
-    }
+    ]
   },
   "dependencies": {
     "lodash.merge": "4.6.2"

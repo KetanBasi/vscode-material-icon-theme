@@ -42,4 +42,11 @@ export const translation: Translation = {
     inputPlaceholder: 'Saturation value (between 0 and 1)',
     wrongValue: 'Please enter a floating-point number between 0 and 1.',
   },
+  frameworkSupport: {
+    nextjs: {
+      toggle: 'Toggle Next.js framework support',
+      enable: 'Enable Next.js framework support',
+      disable: 'Disable Next.js framework support',
+    },
+  },
 };

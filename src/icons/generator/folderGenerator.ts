@@ -44,6 +44,7 @@ export const loadFolderIconDefinitions = (
 
   allIcons.forEach((icon) => {
     if (icon.disabled) return;
+    generateFolderNamesNextJs(config ?? {}, icon.folderNames);
     config = setIconDefinitions(config, icon);
     config = merge({}, config, setFolderNames(icon.name, icon.folderNames));
     config.light = icon.light
@@ -212,6 +213,62 @@ const createIconDefinitions = (
     };
   }
   return config;
+};
+
+const generateFolderNamesNextJs = (
+  config: IconConfiguration,
+  folderNames: string[]
+) => {
+  if (config.options?.frameworkSupports?.nextJS) {
+    addFolderNamesNextJs(config, folderNames);
+  } else {
+    removeFolderNamesNextJs(config, folderNames);
+  }
+};
+
+const addFolderNamesNextJs = (
+  config: IconConfiguration,
+  folderNames: string[]
+) => {
+  folderNames
+    .filter((name) => name.match(/^[\w]/))
+    .forEach((name) => {
+      const nextJSNames = [`(${name})`, `@${name}`];
+      nextJSNames.forEach((newName) => {
+        if (
+          !folderNames.includes(newName) &&
+          !config.options?.frameworkSupports?.nextJSTrace?.includes(newName)
+        ) {
+          folderNames.push(newName);
+          config.options?.frameworkSupports?.nextJSTrace?.push(newName);
+        }
+      });
+    });
+};
+
+const removeFolderNamesNextJs = (
+  config: IconConfiguration,
+  folderNames: string[]
+) => {
+  const setTrace = new Set(
+    config.options?.frameworkSupports?.nextJSTrace ?? []
+  );
+  const filteredFolderNames = new Set(
+    folderNames.filter((name) => name.match(/^(?:\@)|(?:\(.*\))/))
+  );
+  filteredFolderNames.forEach((name) => {
+    if (!setTrace.has(name)) return;
+
+    setTrace.delete(name);
+    const index = folderNames.indexOf(name);
+
+    if (index > -1) {
+      folderNames.splice(index, 1);
+    }
+  });
+  if (config.options && config.options.frameworkSupports) {
+    config.options.frameworkSupports.nextJSTrace = Array.from(setTrace);
+  }
 };
 
 const setFolderNames = (

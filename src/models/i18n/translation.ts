@@ -40,4 +40,11 @@ export interface Translation {
     inputPlaceholder: string;
     wrongValue: string;
   };
+  frameworkSupport?: {
+    nextjs?: {
+      toggle?: string;
+      enable?: string;
+      disable?: string;
+    };
+  };
 }

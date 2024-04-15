@@ -15,6 +15,10 @@ export interface IconJsonOptions {
   languages?: {
     associations?: IconAssociations;
   };
+  frameworkSupports?: {
+    nextJS?: boolean;
+    nextJSTrace?: string[];
+  };
 }
 
 export interface IconAssociations {

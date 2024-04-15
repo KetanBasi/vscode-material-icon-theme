@@ -415,4 +415,89 @@ describe('folder icons', () => {
 
     deepStrictEqual(iconDefinitions.hidesExplorerArrows, true);
   });
+
+  it('should generates NextJS folder naming conventions', () => {
+    const options = getDefaultIconOptions();
+    options.folders.associations = {
+      sample: 'src',
+    };
+    options.frameworkSupports.nextJS = true;
+    const iconConfig = merge({}, new IconConfiguration(), { options });
+    const iconDefinitions = loadFolderIconDefinitions(
+      folderIcons,
+      iconConfig,
+      options
+    );
+    expectedConfig.iconDefinitions = {
+      folder: {
+        iconPath: './../icons/folder.svg',
+      },
+      'folder-open': {
+        iconPath: './../icons/folder-open.svg',
+      },
+      'folder-root': {
+        iconPath: './../icons/folder-root.svg',
+      },
+      'folder-root-open': {
+        iconPath: './../icons/folder-root-open.svg',
+      },
+      'folder-src': {
+        iconPath: './../icons/folder-src.svg',
+      },
+      'folder-src-open': {
+        iconPath: './../icons/folder-src-open.svg',
+      },
+      'folder-angular': {
+        iconPath: './../icons/folder-angular.svg',
+      },
+      'folder-angular-open': {
+        iconPath: './../icons/folder-angular-open.svg',
+      },
+    };
+    expectedConfig.folder = 'folder';
+    expectedConfig.folderExpanded = 'folder-open';
+    expectedConfig.rootFolder = 'folder-root';
+    expectedConfig.rootFolderExpanded = 'folder-root-open';
+    expectedConfig.folderNames = {
+      src: 'folder-src',
+      source: 'folder-src',
+      angular: 'folder-angular',
+      ng: 'folder-angular',
+      sample: 'folder-src',
+      '(src)': 'folder-src',
+      '(source)': 'folder-src',
+      '(angular)': 'folder-angular',
+      '(ng)': 'folder-angular',
+      '(sample)': 'folder-src',
+      '@src': 'folder-src',
+      '@source': 'folder-src',
+      '@angular': 'folder-angular',
+      '@ng': 'folder-angular',
+      '@sample': 'folder-src',
+    };
+    expectedConfig.folderNamesExpanded = {
+      src: 'folder-src-open',
+      source: 'folder-src-open',
+      angular: 'folder-angular-open',
+      ng: 'folder-angular-open',
+      sample: 'folder-src-open',
+      '(src)': 'folder-src-open',
+      '(source)': 'folder-src-open',
+      '(angular)': 'folder-angular-open',
+      '(ng)': 'folder-angular-open',
+      '(sample)': 'folder-src-open',
+      '@src': 'folder-src-open',
+      '@source': 'folder-src-open',
+      '@angular': 'folder-angular-open',
+      '@ng': 'folder-angular-open',
+      '@sample': 'folder-src-open',
+    };
+    expectedConfig.hidesExplorerArrows = false;
+    expectedConfig.options!.folders!.associations = {
+      sample: 'src',
+    };
+    expectedConfig.options!.frameworkSupports!.nextJS = true;
+
+    deepStrictEqual(iconDefinitions, expectedConfig);
+  });
 });

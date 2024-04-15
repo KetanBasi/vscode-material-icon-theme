@@ -50,12 +50,16 @@ export const generateIconConfigurationObject = (
     options
   );
 
-  return merge(
+  const config = merge(
     {},
     languageIconDefinitions,
     fileIconDefinitions,
     folderIconDefinitions
   );
+  if (config.options)
+    config.options.frameworkSupports =
+      folderIconDefinitions.options?.frameworkSupports;
+  return config;
 };
 
 /**
@@ -171,6 +175,10 @@ export const getDefaultIconOptions = (): Required<IconJsonOptions> => ({
     associations: {},
   },
   languages: { associations: {} },
+  frameworkSupports: {
+    nextJS: false,
+    nextJSTrace: [],
+  },
 });
 
 /**

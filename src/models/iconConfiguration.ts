@@ -16,6 +16,7 @@ export class IconConfiguration {
   highContrast?: IconConfiguration;
   options?: IconJsonOptions;
   hidesExplorerArrows?: boolean;
+  dbg?: any;
 
   constructor() {
     this.iconDefinitions = {};
